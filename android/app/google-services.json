@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "356762834902",
+    "project_id": "black-car-project",
+    "storage_bucket": "black-car-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356762834902:android:135d103a8cde633f56b677",
+        "android_client_info": {
+          "package_name": "com.mycompany.blackcar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356762834902-75fjkba6ttghpagklru2c9p3dbq5aahi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5C8GlGuIyqARO0HIziJFk9ol1BR6AdOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356762834902-75fjkba6ttghpagklru2c9p3dbq5aahi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "356762834902-jch74pkg5qat1mmieigpl7t4fcvgo5h3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.blackcar"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
