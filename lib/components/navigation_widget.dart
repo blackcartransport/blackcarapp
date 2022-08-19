@@ -42,7 +42,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
               borderRadius: 16,
               borderWidth: 1,
               buttonSize: 60,
-              fillColor: FlutterFlowTheme.of(context).primaryBackground,
+              fillColor: FlutterFlowTheme.of(context).primaryColor,
               icon: FaIcon(
                 FontAwesomeIcons.locationArrow,
                 color: FlutterFlowTheme.of(context).primaryText,
