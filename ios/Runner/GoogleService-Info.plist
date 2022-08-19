@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>356762834902-jch74pkg5qat1mmieigpl7t4fcvgo5h3.apps.googleusercontent.com</string>
+	<string>1099055792753-ua9q2llsjtjbd99agnpadg22g64kgbdj.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.356762834902-jch74pkg5qat1mmieigpl7t4fcvgo5h3</string>
+	<string>com.googleusercontent.apps.1099055792753-ua9q2llsjtjbd99agnpadg22g64kgbdj</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1099055792753-51lkkuc60bess8inpjiiie54ucknrapf.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAXwC3MzSF5FnqJwWZ0RlySZpGrG9gfsmM</string>
+	<string>AIzaSyC4YFYximcDuX5li-jDvK6cqqn7Rqh3LQg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>356762834902</string>
+	<string>1099055792753</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mycompany.blackcar</string>
+	<string>com.blackcartransport.app</string>
 	<key>PROJECT_ID</key>
-	<string>black-car-project</string>
+	<string>blackcartransport</string>
 	<key>STORAGE_BUCKET</key>
-	<string>black-car-project.appspot.com</string>
+	<string>blackcartransport.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:356762834902:ios:9f762a8e829be21756b677</string>
+	<string>1:1099055792753:ios:d18b43c125b91b7740d1d0</string>
 </dict>
 </plist>

@@ -1,6 +1,6 @@
 {
-    "name": "BlackCar",
-    "short_name": "BlackCar",
+    "name": "BlackCarTransport",
+    "short_name": "BlackCarTransport",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

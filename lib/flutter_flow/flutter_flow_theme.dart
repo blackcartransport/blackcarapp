@@ -46,12 +46,6 @@ abstract class FlutterFlowTheme {
   late Color black600;
   late Color tertiary400;
   late Color textColor;
-  late Color customColor1;
-  late Color maximumBlueGreen;
-  late Color plumpPurple;
-  late Color platinum;
-  late Color ashGray;
-  late Color darkSeaGreen;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -72,7 +66,7 @@ abstract class FlutterFlowTheme {
 }
 
 class LightModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFF455CE9);
+  late Color primaryColor = const Color(0xFF4B39EF);
   late Color secondaryColor = const Color(0xFF39D2C0);
   late Color tertiaryColor = const Color(0xFFEE8B60);
   late Color alternate = const Color(0xFFFF5963);
@@ -82,19 +76,13 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color secondaryText = const Color(0xFF57636C);
 
   late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFFC3C3C3);
+  late Color lineColor = Color(0xFFE0E3E7);
   late Color grayIcon = Color(0xFF95A1AC);
   late Color gray200 = Color(0xFFDBE2E7);
   late Color gray600 = Color(0xFF262D34);
   late Color black600 = Color(0xFF090F13);
   late Color tertiary400 = Color(0xFF39D2C0);
   late Color textColor = Color(0xFF1E2429);
-  late Color customColor1 = Color(0xFF2FB73C);
-  late Color maximumBlueGreen = Color(0xFF59C3C3);
-  late Color plumpPurple = Color(0xFF52489C);
-  late Color platinum = Color(0xFFEBEBEB);
-  late Color ashGray = Color(0xFFCAD2C5);
-  late Color darkSeaGreen = Color(0xFF84A98C);
 }
 
 abstract class Typography {
@@ -154,29 +142,29 @@ class ThemeTypography extends Typography {
         fontWeight: FontWeight.w600,
         fontSize: 16,
       );
-  String get bodyText1Family => 'Roboto';
+  String get bodyText1Family => 'Montserrat';
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Roboto',
+        'Montserrat',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         fontSize: 14,
       );
-  String get bodyText2Family => 'Roboto';
+  String get bodyText2Family => 'Montserrat';
   TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Roboto',
+        'Montserrat',
         color: theme.secondaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         fontSize: 14,
       );
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFF455CE9);
+  late Color primaryColor = const Color(0xFF4B39EF);
   late Color secondaryColor = const Color(0xFF39D2C0);
   late Color tertiaryColor = const Color(0xFFEE8B60);
   late Color alternate = const Color(0xFFFF5963);
-  late Color primaryBackground = const Color(0xFF0A0A0A);
-  late Color secondaryBackground = const Color(0xFF161616);
+  late Color primaryBackground = const Color(0xFF171F25);
+  late Color secondaryBackground = const Color(0xFF141A1F);
   late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFF95A1AC);
 
@@ -188,12 +176,6 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color black600 = Color(0xFF090F13);
   late Color tertiary400 = Color(0xFF39D2C0);
   late Color textColor = Color(0xFF1E2429);
-  late Color customColor1 = Color(0xFF452FB7);
-  late Color maximumBlueGreen = Color(0xFF59C3C3);
-  late Color plumpPurple = Color(0xFF52489C);
-  late Color platinum = Color(0xFFEBEBEB);
-  late Color ashGray = Color(0xFFCAD2C5);
-  late Color darkSeaGreen = Color(0xFF84A98C);
 }
 
 extension TextStyleHelper on TextStyle {

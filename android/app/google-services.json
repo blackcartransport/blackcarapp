@@ -1,40 +1,48 @@
 {
   "project_info": {
-    "project_number": "356762834902",
-    "project_id": "black-car-project",
-    "storage_bucket": "black-car-project.appspot.com"
+    "project_number": "1099055792753",
+    "project_id": "blackcartransport",
+    "storage_bucket": "blackcartransport.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:356762834902:android:135d103a8cde633f56b677",
+        "mobilesdk_app_id": "1:1099055792753:android:e50c426801a3b7e040d1d0",
         "android_client_info": {
-          "package_name": "com.mycompany.blackcar"
+          "package_name": "com.blackcartransport.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "356762834902-75fjkba6ttghpagklru2c9p3dbq5aahi.apps.googleusercontent.com",
+          "client_id": "1099055792753-51lkkuc60bess8inpjiiie54ucknrapf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blackcartransport.app",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1099055792753-locrkd2m6ofpquan6egmmv9v9ol096f5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD5C8GlGuIyqARO0HIziJFk9ol1BR6AdOA"
+          "current_key": "AIzaSyByje3cEUTAXjHdQ6IuofGhM3vzNJBbiUc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "356762834902-75fjkba6ttghpagklru2c9p3dbq5aahi.apps.googleusercontent.com",
+              "client_id": "1099055792753-locrkd2m6ofpquan6egmmv9v9ol096f5.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "356762834902-jch74pkg5qat1mmieigpl7t4fcvgo5h3.apps.googleusercontent.com",
+              "client_id": "1099055792753-ua9q2llsjtjbd99agnpadg22g64kgbdj.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.mycompany.blackcar"
+                "bundle_id": "com.blackcartransport.app"
               }
             }
           ]

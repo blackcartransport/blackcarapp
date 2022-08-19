@@ -8,21 +8,7 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /driver/{document} {
-      allow create: if false;
-      allow read: if false;
-      allow write: if false;
-      allow delete: if false;
-    }
-
-    match /ride/{document} {
-      allow create: if request.auth.uid == request.resource.data.ride_id;
-      allow read: if request.auth.uid == resource.data.ride_id;
-      allow write: if false;
-      allow delete: if false;
-    }
-
-    match /vehicles/{document} {
+    match /navigation/{document} {
       allow create: if false;
       allow read: if false;
       allow write: if false;

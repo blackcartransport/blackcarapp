@@ -2,7 +2,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LogoWidget extends StatefulWidget {
@@ -14,30 +13,34 @@ class LogoWidget extends StatefulWidget {
 
 class _LogoWidgetState extends State<LogoWidget> {
   @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: AlignmentDirectional(0, 0),
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
       child: Container(
-        width: 70,
-        height: 70,
-        decoration: BoxDecoration(
-          color: Color(0x00101213),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
+        width: 60,
+        height: 50,
+        child: Stack(
+          alignment: AlignmentDirectional(0, 0),
           children: [
-            if (Theme.of(context).brightness == Brightness.dark)
-              SvgPicture.asset(
-                'assets/images/darkLogo.svg',
-                width: 70,
-                height: 70,
+            if (Theme.of(context).brightness == Brightness.light)
+              Image.asset(
+                'assets/images/LightThemeLogo.png',
+                width: MediaQuery.of(context).size.width * 0.6,
+                height: MediaQuery.of(context).size.height * 0.5,
                 fit: BoxFit.cover,
               ),
-            if (Theme.of(context).brightness == Brightness.light)
-              SvgPicture.asset(
-                'assets/images/lightLogoThicker.svg',
-                width: 70,
-                height: 70,
+            if (Theme.of(context).brightness == Brightness.dark)
+              Image.asset(
+                'assets/images/DarkThemeLogo.png',
+                width: 60,
+                height: 50,
                 fit: BoxFit.cover,
               ),
           ],

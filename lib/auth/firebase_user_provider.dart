@@ -1,19 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
 
-class BlackCarFirebaseUser {
-  BlackCarFirebaseUser(this.user);
+class BlackCarTransportFirebaseUser {
+  BlackCarTransportFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 }
 
-BlackCarFirebaseUser? currentUser;
+BlackCarTransportFirebaseUser? currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;
-Stream<BlackCarFirebaseUser> blackCarFirebaseUserStream() =>
+Stream<BlackCarTransportFirebaseUser> blackCarTransportFirebaseUserStream() =>
     FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
-        .map<BlackCarFirebaseUser>(
-            (user) => currentUser = BlackCarFirebaseUser(user));
+        .map<BlackCarTransportFirebaseUser>(
+            (user) => currentUser = BlackCarTransportFirebaseUser(user));
