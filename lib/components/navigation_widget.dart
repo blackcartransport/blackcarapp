@@ -1,13 +1,29 @@
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NavigationWidget extends StatefulWidget {
-  const NavigationWidget({Key? key}) : super(key: key);
+  const NavigationWidget({
+    Key? key,
+    this.iconColorOne,
+    this.iconColorTwo,
+    this.iconColorThree,
+    this.iconColorFour,
+    this.bgColorOne,
+    this.bgColorTwo,
+    this.bgColorThree,
+    this.bgColorFour,
+  }) : super(key: key);
+
+  final Color? iconColorOne;
+  final Color? iconColorTwo;
+  final Color? iconColorThree;
+  final Color? iconColorFour;
+  final Color? bgColorOne;
+  final Color? bgColorTwo;
+  final Color? bgColorThree;
+  final Color? bgColorFour;
 
   @override
   _NavigationWidgetState createState() => _NavigationWidgetState();
@@ -37,64 +53,65 @@ class _NavigationWidgetState extends State<NavigationWidget> {
           verticalDirection: VerticalDirection.down,
           clipBehavior: Clip.antiAlias,
           children: [
-            FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 16,
-              borderWidth: 1,
-              buttonSize: 60,
-              fillColor: FlutterFlowTheme.of(context).primaryColor,
-              icon: FaIcon(
-                FontAwesomeIcons.locationArrow,
-                color: FlutterFlowTheme.of(context).primaryText,
-                size: 22,
-              ),
-              onPressed: () async {
-                logFirebaseEvent('NAVIGATION_COMP_locationArrow_ICN_ON_TAP');
-                logFirebaseEvent('IconButton_Navigate-To');
-                context.pushNamed('fleet');
+            InkWell(
+              onTap: () async {
+                logFirebaseEvent('NAVIGATION_Container_n6kpjhus_ON_TAP');
+                logFirebaseEvent('Container_Navigate-To');
+                context.pushNamed('homePage');
               },
+              child: Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: widget.bgColorOne,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Icon(
+                  Icons.location_pin,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 24,
+                ),
+              ),
             ),
-            FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 16,
-              borderWidth: 1,
-              buttonSize: 60,
-              icon: FaIcon(
-                FontAwesomeIcons.history,
-                color: FlutterFlowTheme.of(context).primaryText,
-                size: 22,
-              ),
-              onPressed: () {
-                print('IconButton pressed ...');
+            InkWell(
+              onTap: () async {
+                logFirebaseEvent('NAVIGATION_Container_w72jy4on_ON_TAP');
+                logFirebaseEvent('Container_Navigate-To');
+                context.pushNamed('myRides');
               },
+              child: Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: widget.bgColorTwo,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Icon(
+                  Icons.access_time,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 24,
+                ),
+              ),
             ),
-            FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 16,
-              borderWidth: 1,
-              buttonSize: 60,
-              icon: FaIcon(
-                FontAwesomeIcons.solidCreditCard,
-                color: FlutterFlowTheme.of(context).primaryText,
-                size: 22,
-              ),
-              onPressed: () {
-                print('IconButton pressed ...');
+            InkWell(
+              onTap: () async {
+                logFirebaseEvent('NAVIGATION_Container_ml3n65w8_ON_TAP');
+                logFirebaseEvent('Container_Navigate-To');
+                context.pushNamed('paymentOptions');
               },
-            ),
-            FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 16,
-              borderWidth: 1,
-              buttonSize: 60,
-              icon: FaIcon(
-                FontAwesomeIcons.solidUser,
-                color: FlutterFlowTheme.of(context).primaryText,
-                size: 22,
+              child: Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: widget.bgColorThree,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Icon(
+                  Icons.credit_card,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 24,
+                ),
               ),
-              onPressed: () {
-                print('IconButton pressed ...');
-              },
             ),
           ],
         ),

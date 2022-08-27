@@ -1,4 +1,4 @@
-package com.blackcartransport.app
+package com.blackcartransport.blackcar
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1099055792753-ua9q2llsjtjbd99agnpadg22g64kgbdj.apps.googleusercontent.com</string>
+	<string>1099055792753-706plgeqm77p5skle9u5e12p2on0as08.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1099055792753-ua9q2llsjtjbd99agnpadg22g64kgbdj</string>
+	<string>com.googleusercontent.apps.1099055792753-706plgeqm77p5skle9u5e12p2on0as08</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>1099055792753-51lkkuc60bess8inpjiiie54ucknrapf.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.blackcartransport.app</string>
+	<string>com.blackcartransport.blackcar</string>
 	<key>PROJECT_ID</key>
 	<string>blackcartransport</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1099055792753:ios:d18b43c125b91b7740d1d0</string>
+	<string>1:1099055792753:ios:4486e38b352db2f940d1d0</string>
 </dict>
 </plist>

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
@@ -67,29 +66,47 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? FleetWidget() : SignInWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : SignInWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? FleetWidget() : SignInWidget(),
+              appStateNotifier.loggedIn ? HomePageWidget() : SignInWidget(),
           routes: [
             FFRoute(
-              name: 'fleet',
-              path: 'fleet',
-              requireAuth: true,
-              builder: (context, params) => FleetWidget(),
+              name: 'signUp',
+              path: 'signUp',
+              builder: (context, params) => SignUpWidget(),
             ),
             FFRoute(
-              name: 'signUp',
-              path: 'sign-up',
-              builder: (context, params) => SignUpWidget(),
+              name: 'editProfile',
+              path: 'editProfile',
+              requireAuth: true,
+              builder: (context, params) => EditProfileWidget(),
             ),
             FFRoute(
               name: 'signIn',
               path: 'sign-in',
               builder: (context, params) => SignInWidget(),
+            ),
+            FFRoute(
+              name: 'homePage',
+              path: 'home',
+              requireAuth: true,
+              builder: (context, params) => HomePageWidget(),
+            ),
+            FFRoute(
+              name: 'myRides',
+              path: 'myRides',
+              requireAuth: true,
+              builder: (context, params) => MyRidesWidget(),
+            ),
+            FFRoute(
+              name: 'paymentOptions',
+              path: 'paymentOptions',
+              requireAuth: true,
+              builder: (context, params) => PaymentOptionsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -258,11 +275,10 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? Center(
                   child: SizedBox(
-                    width: 35,
-                    height: 35,
-                    child: SpinKitFadingFour(
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                      size: 35,
+                    width: 50,
+                    height: 50,
+                    child: CircularProgressIndicator(
+                      color: Color(0xFF262626),
                     ),
                   ),
                 )
@@ -301,5 +317,9 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(
+        hasTransition: true,
+        transitionType: PageTransitionType.fade,
+        duration: Duration(milliseconds: 0),
+      );
 }

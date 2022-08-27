@@ -28,8 +28,20 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.1099055792753-ua9q2llsjtjbd99agnpadg22g64kgbdj</string>
+                <string>com.googleusercontent.apps.1099055792753-706plgeqm77p5skle9u5e12p2on0as08</string>
                 
+            </array>
+        </dict>
+
+
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>com.blackcartransport.blackcar.braintree</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.blackcartransport.blackcar.braintree</string>
             </array>
         </dict>
 
@@ -55,6 +67,10 @@
 
 	<key>NSLocationWhenInUseUsageDescription</key>
       <string>In order to search nearby, this app requires access to your current location.</string>
+	<key>NSCameraUsageDescription</key>
+      <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+      <string>In order to upload media, this app requires permission to access the photo library.</string>
 
 
 

@@ -1,4 +1,5 @@
 import UIKit
+import Braintree
 
 import Flutter
 import GoogleMaps
@@ -9,8 +10,9 @@ import GoogleMaps
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    GMSServices.provideAPIKey("AIzaSyD7xLQLc1PXUzSi00iKFkXVulaUFHGD1fY")
+    GMSServices.provideAPIKey("AIzaSyC4YFYximcDuX5li-jDvK6cqqn7Rqh3LQg")
     GeneratedPluginRegistrant.register(with: self)
+    BTAppContextSwitcher.setReturnURLScheme("com.blackcartransport.blackcar.braintree")
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }

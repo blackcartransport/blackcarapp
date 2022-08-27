@@ -4,7 +4,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUpWidget extends StatefulWidget {
@@ -322,7 +321,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                           return;
                                         }
 
-                                        context.goNamedAuth('fleet', mounted);
+                                        logFirebaseEvent(
+                                            'Button-Login_Navigate-To');
+                                        context.pushNamedAuth(
+                                            'editProfile', mounted);
                                       },
                                       text: 'Create Account',
                                       options: FFButtonOptions(
@@ -333,7 +335,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .subtitle1
                                             .override(
-                                              fontFamily: 'Montserrat',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle1Family,
                                               color: Colors.white,
                                             ),
                                         elevation: 3,
@@ -374,7 +378,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .subtitle2
                                             .override(
-                                              fontFamily: 'Montserrat',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2Family,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryColor,

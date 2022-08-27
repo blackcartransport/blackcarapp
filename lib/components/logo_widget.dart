@@ -1,7 +1,6 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LogoWidget extends StatefulWidget {
@@ -32,8 +31,8 @@ class _LogoWidgetState extends State<LogoWidget> {
             if (Theme.of(context).brightness == Brightness.light)
               Image.asset(
                 'assets/images/LightThemeLogo.png',
-                width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.5,
+                width: 60,
+                height: 50,
                 fit: BoxFit.cover,
               ),
             if (Theme.of(context).brightness == Brightness.dark)

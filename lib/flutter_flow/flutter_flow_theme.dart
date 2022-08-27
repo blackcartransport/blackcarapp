@@ -8,7 +8,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 const kThemeModeKey = '__theme_mode__';
 SharedPreferences? _prefs;
 
+enum DeviceSize {
+  mobile,
+  tablet,
+  desktop,
+}
+
 abstract class FlutterFlowTheme {
+  static DeviceSize deviceSize = DeviceSize.mobile;
+
   static Future initialize() async =>
       _prefs = await SharedPreferences.getInstance();
   static ThemeMode get themeMode {
@@ -46,6 +54,7 @@ abstract class FlutterFlowTheme {
   late Color black600;
   late Color tertiary400;
   late Color textColor;
+  late Color backgroundComponents;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -62,7 +71,22 @@ abstract class FlutterFlowTheme {
   String get bodyText2Family => typography.bodyText2Family;
   TextStyle get bodyText2 => typography.bodyText2;
 
-  Typography get typography => ThemeTypography(this);
+  Typography get typography => {
+        DeviceSize.mobile: MobileTypography(this),
+        DeviceSize.tablet: TabletTypography(this),
+        DeviceSize.desktop: DesktopTypography(this),
+      }[deviceSize]!;
+}
+
+DeviceSize getDeviceSize(BuildContext context) {
+  final width = MediaQuery.of(context).size.width;
+  if (width < 479) {
+    return DeviceSize.mobile;
+  } else if (width < 991) {
+    return DeviceSize.tablet;
+  } else {
+    return DeviceSize.desktop;
+  }
 }
 
 class LightModeTheme extends FlutterFlowTheme {
@@ -70,9 +94,9 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color secondaryColor = const Color(0xFF39D2C0);
   late Color tertiaryColor = const Color(0xFFEE8B60);
   late Color alternate = const Color(0xFFFF5963);
-  late Color primaryBackground = const Color(0xFFF1F4F8);
-  late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color primaryText = const Color(0xFF101213);
+  late Color primaryBackground = const Color(0xFF171F25);
+  late Color secondaryBackground = const Color(0xFF141A1F);
+  late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFF57636C);
 
   late Color primaryBtnText = Color(0xFFFFFFFF);
@@ -83,6 +107,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color black600 = Color(0xFF090F13);
   late Color tertiary400 = Color(0xFF39D2C0);
   late Color textColor = Color(0xFF1E2429);
+  late Color backgroundComponents = Color(0xFF1D2428);
 }
 
 abstract class Typography {
@@ -102,8 +127,8 @@ abstract class Typography {
   TextStyle get bodyText2;
 }
 
-class ThemeTypography extends Typography {
-  ThemeTypography(this.theme);
+class MobileTypography extends Typography {
+  MobileTypography(this.theme);
 
   final FlutterFlowTheme theme;
 
@@ -158,6 +183,118 @@ class ThemeTypography extends Typography {
       );
 }
 
+class TabletTypography extends Typography {
+  TabletTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get title1Family => 'Montserrat';
+  TextStyle get title1 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 24,
+      );
+  String get title2Family => 'Montserrat';
+  TextStyle get title2 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 22,
+      );
+  String get title3Family => 'Montserrat';
+  TextStyle get title3 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 20,
+      );
+  String get subtitle1Family => 'Montserrat';
+  TextStyle get subtitle1 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+      );
+  String get subtitle2Family => 'Montserrat';
+  TextStyle get subtitle2 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
+      );
+  String get bodyText1Family => 'Montserrat';
+  TextStyle get bodyText1 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      );
+  String get bodyText2Family => 'Montserrat';
+  TextStyle get bodyText2 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      );
+}
+
+class DesktopTypography extends Typography {
+  DesktopTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get title1Family => 'Montserrat';
+  TextStyle get title1 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 32,
+      );
+  String get title2Family => 'Montserrat';
+  TextStyle get title2 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 28,
+      );
+  String get title3Family => 'Montserrat';
+  TextStyle get title3 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 24,
+      );
+  String get subtitle1Family => 'Montserrat';
+  TextStyle get subtitle1 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 22,
+      );
+  String get subtitle2Family => 'Montserrat';
+  TextStyle get subtitle2 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+      );
+  String get bodyText1Family => 'Montserrat';
+  TextStyle get bodyText1 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16,
+      );
+  String get bodyText2Family => 'Montserrat';
+  TextStyle get bodyText2 => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      );
+}
+
 class DarkModeTheme extends FlutterFlowTheme {
   late Color primaryColor = const Color(0xFF4B39EF);
   late Color secondaryColor = const Color(0xFF39D2C0);
@@ -176,6 +313,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color black600 = Color(0xFF090F13);
   late Color tertiary400 = Color(0xFF39D2C0);
   late Color textColor = Color(0xFF1E2429);
+  late Color backgroundComponents = Color(0xFF1D2428);
 }
 
 extension TextStyleHelper on TextStyle {

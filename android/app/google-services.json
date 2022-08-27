@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1099055792753:android:e50c426801a3b7e040d1d0",
+        "mobilesdk_app_id": "1:1099055792753:android:07ac2a9e0cf821a140d1d0",
         "android_client_info": {
-          "package_name": "com.blackcartransport.app"
+          "package_name": "com.blackcartransport.blackcar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1099055792753-51lkkuc60bess8inpjiiie54ucknrapf.apps.googleusercontent.com",
+          "client_id": "1099055792753-hm7t640ltllij8to091u6vttb83shv83.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.blackcartransport.app",
+            "package_name": "com.blackcartransport.blackcar",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
         },
@@ -39,10 +39,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1099055792753-ua9q2llsjtjbd99agnpadg22g64kgbdj.apps.googleusercontent.com",
+              "client_id": "1099055792753-706plgeqm77p5skle9u5e12p2on0as08.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.blackcartransport.app"
+                "bundle_id": "com.blackcartransport.blackcar"
               }
             }
           ]

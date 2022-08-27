@@ -1,11 +1,11 @@
 import '../auth/auth_util.dart';
+import '../components/forgot_password_widget.dart';
 import '../components/logo_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignInWidget extends StatefulWidget {
@@ -225,9 +225,24 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   FFButtonWidget(
-                                    onPressed: () {
-                                      print(
-                                          'Button-ForgotPassword pressed ...');
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'SIGN_IN_PAGE_buttonForgotPassword_ON_TAP');
+                                      logFirebaseEvent(
+                                          'buttonForgotPassword_Bottom-Sheet');
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Color(0x3D141A1F),
+                                        barrierColor: Color(0xAF000000),
+                                        context: context,
+                                        builder: (context) {
+                                          return Padding(
+                                            padding: MediaQuery.of(context)
+                                                .viewInsets,
+                                            child: ForgotPasswordWidget(),
+                                          );
+                                        },
+                                      );
                                     },
                                     text: 'Forgot Password?',
                                     options: FFButtonOptions(
@@ -259,7 +274,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         return;
                                       }
 
-                                      context.goNamedAuth('fleet', mounted);
+                                      context.goNamedAuth('homePage', mounted);
                                     },
                                     text: 'Login',
                                     options: FFButtonOptions(
@@ -270,7 +285,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .subtitle1
                                           .override(
-                                            fontFamily: 'Montserrat',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .subtitle1Family,
                                             color: Colors.white,
                                           ),
                                       elevation: 3,
@@ -311,7 +328,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .subtitle2
                                           .override(
-                                            fontFamily: 'Montserrat',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .subtitle2Family,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryColor,
                                             fontSize: 14,

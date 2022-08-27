@@ -11,9 +11,6 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   String? get email;
 
-  @BuiltValueField(wireName: 'display_name')
-  String? get displayName;
-
   @BuiltValueField(wireName: 'photo_url')
   String? get photoUrl;
 
@@ -25,16 +22,34 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   @BuiltValueField(wireName: 'phone_number')
   String? get phoneNumber;
 
+  @BuiltValueField(wireName: 'first_name')
+  String? get firstName;
+
+  @BuiltValueField(wireName: 'last_name')
+  String? get lastName;
+
+  @BuiltValueField(wireName: 'display_name')
+  String? get displayName;
+
+  @BuiltValueField(wireName: 'my_locations')
+  DocumentReference? get myLocations;
+
+  @BuiltValueField(wireName: 'user_address')
+  String? get userAddress;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(UsersRecordBuilder builder) => builder
     ..email = ''
-    ..displayName = ''
     ..photoUrl = ''
     ..uid = ''
-    ..phoneNumber = '';
+    ..phoneNumber = ''
+    ..firstName = ''
+    ..lastName = ''
+    ..displayName = ''
+    ..userAddress = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -59,22 +74,30 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
 Map<String, dynamic> createUsersRecordData({
   String? email,
-  String? displayName,
   String? photoUrl,
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
+  String? firstName,
+  String? lastName,
+  String? displayName,
+  DocumentReference? myLocations,
+  String? userAddress,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
     UsersRecord(
       (u) => u
         ..email = email
-        ..displayName = displayName
         ..photoUrl = photoUrl
         ..uid = uid
         ..createdTime = createdTime
-        ..phoneNumber = phoneNumber,
+        ..phoneNumber = phoneNumber
+        ..firstName = firstName
+        ..lastName = lastName
+        ..displayName = displayName
+        ..myLocations = myLocations
+        ..userAddress = userAddress,
     ),
   );
 
