@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
+import '../components/logo_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -48,25 +49,25 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           body: GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Align(
-                  alignment: AlignmentDirectional(0, 0),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      constraints: BoxConstraints(
-                        maxWidth: 500,
-                      ),
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 32, 0, 32),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: AlignmentDirectional(0, 0),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(16, 64, 16, 16),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        constraints: BoxConstraints(
+                          maxWidth: 435,
+                        ),
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
                         child: Form(
                           key: formKey,
                           autovalidateMode: AutovalidateMode.disabled,
@@ -79,6 +80,23 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 30),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          width: 60,
+                                          height: 50,
+                                          decoration: BoxDecoration(),
+                                          child: LogoWidget(),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                   Text(
                                     'Complete your profile',
                                     style: FlutterFlowTheme.of(context).title1,
@@ -155,7 +173,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                               },
                                               child: ClipRRect(
                                                 borderRadius:
-                                                    BorderRadius.circular(20),
+                                                    BorderRadius.circular(16),
                                                 child: Image.network(
                                                   valueOrDefault<String>(
                                                     uploadedFileUrl,
@@ -230,6 +248,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,
+                                              maxLines: 1,
                                             ),
                                           ),
                                         ),
@@ -283,6 +302,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,
+                                              maxLines: 1,
                                             ),
                                           ),
                                         ),
@@ -357,7 +377,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             controller: phoneNumberController,
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              labelText: 'Phone Number',
+                                              labelText: 'Phone number',
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText2,
@@ -394,7 +414,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1,
-                                            keyboardType: TextInputType.number,
                                           ),
                                         ),
                                       ),
@@ -462,61 +481,64 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         0, 24, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Expanded(
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'EDIT_PROFILE_PAGE_Button-Login_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'Button-Login_Validate-Form');
-                                              if (formKey.currentState ==
-                                                      null ||
-                                                  !formKey.currentState!
-                                                      .validate()) {
-                                                return;
-                                              }
+                                        FFButtonWidget(
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'EDIT_PROFILE_PAGE_Button-Login_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Button-Login_Validate-Form');
+                                            if (formKey.currentState == null ||
+                                                !formKey.currentState!
+                                                    .validate()) {
+                                              return;
+                                            }
 
-                                              logFirebaseEvent(
-                                                  'Button-Login_Backend-Call');
+                                            logFirebaseEvent(
+                                                'Button-Login_Backend-Call');
 
-                                              final usersUpdateData =
-                                                  createUsersRecordData(
-                                                photoUrl: uploadedFileUrl,
-                                                firstName:
-                                                    firstNameController!.text,
-                                                lastName:
-                                                    lastnameController!.text,
-                                                displayName:
-                                                    displayNameController!.text,
-                                                phoneNumber:
-                                                    phoneNumberController!.text,
-                                                userAddress:
-                                                    homeAddressController!.text,
-                                              );
-                                              await currentUserReference!
-                                                  .update(usersUpdateData);
-                                              logFirebaseEvent(
-                                                  'Button-Login_Navigate-To');
-                                              context.goNamed('homePage');
-                                            },
-                                            text: 'Done',
-                                            options: FFButtonOptions(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(34, 20, 34, 20),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1,
-                                              elevation: 3,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
+                                            final usersUpdateData =
+                                                createUsersRecordData(
+                                              photoUrl: uploadedFileUrl,
+                                              firstName:
+                                                  firstNameController!.text,
+                                              lastName:
+                                                  lastnameController!.text,
+                                              displayName:
+                                                  displayNameController!.text,
+                                              phoneNumber:
+                                                  phoneNumberController!.text,
+                                              userAddress:
+                                                  homeAddressController!.text,
+                                            );
+                                            await currentUserReference!
+                                                .update(usersUpdateData);
+                                            logFirebaseEvent(
+                                                'Button-Login_Navigate-To');
+                                            context.goNamed('homePage');
+                                          },
+                                          text: 'Finish',
+                                          options: FFButtonOptions(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    34, 20, 34, 20),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .subtitle1
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle1Family,
+                                                      fontSize: 16,
+                                                    ),
+                                            elevation: 3,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1,
                                             ),
                                           ),
                                         ),
@@ -531,8 +553,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ));

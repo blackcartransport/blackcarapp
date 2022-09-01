@@ -95,18 +95,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'home',
               requireAuth: true,
               builder: (context, params) => HomePageWidget(),
-            ),
-            FFRoute(
-              name: 'myRides',
-              path: 'myRides',
-              requireAuth: true,
-              builder: (context, params) => MyRidesWidget(),
-            ),
-            FFRoute(
-              name: 'paymentOptions',
-              path: 'paymentOptions',
-              requireAuth: true,
-              builder: (context, params) => PaymentOptionsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

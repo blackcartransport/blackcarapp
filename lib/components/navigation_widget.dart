@@ -73,44 +73,30 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                 ),
               ),
             ),
-            InkWell(
-              onTap: () async {
-                logFirebaseEvent('NAVIGATION_Container_w72jy4on_ON_TAP');
-                logFirebaseEvent('Container_Navigate-To');
-                context.pushNamed('myRides');
-              },
-              child: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  color: widget.bgColorTwo,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Icon(
-                  Icons.access_time,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24,
-                ),
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                color: widget.bgColorTwo,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Icon(
+                Icons.access_time,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 24,
               ),
             ),
-            InkWell(
-              onTap: () async {
-                logFirebaseEvent('NAVIGATION_Container_ml3n65w8_ON_TAP');
-                logFirebaseEvent('Container_Navigate-To');
-                context.pushNamed('paymentOptions');
-              },
-              child: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  color: widget.bgColorThree,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Icon(
-                  Icons.credit_card,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24,
-                ),
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                color: widget.bgColorThree,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Icon(
+                Icons.credit_card,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 24,
               ),
             ),
           ],

@@ -22,28 +22,16 @@ class _LogoWidgetState extends State<LogoWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-      child: Container(
-        width: 60,
-        height: 50,
-        child: Stack(
-          alignment: AlignmentDirectional(0, 0),
-          children: [
-            if (Theme.of(context).brightness == Brightness.light)
-              Image.asset(
-                'assets/images/LightThemeLogo.png',
-                width: 60,
-                height: 50,
-                fit: BoxFit.cover,
-              ),
-            if (Theme.of(context).brightness == Brightness.dark)
-              Image.asset(
-                'assets/images/DarkThemeLogo.png',
-                width: 60,
-                height: 50,
-                fit: BoxFit.cover,
-              ),
-          ],
-        ),
+      child: Stack(
+        alignment: AlignmentDirectional(0, 0),
+        children: [
+          Image.asset(
+            'assets/images/DarkThemeLogo.png',
+            width: 70,
+            height: 60,
+            fit: BoxFit.cover,
+          ),
+        ],
       ),
     );
   }
