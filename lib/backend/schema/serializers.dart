@@ -4,7 +4,6 @@ import 'users_record.dart';
 import 'drivers_record.dart';
 import 'vehicles_record.dart';
 import 'rides_record.dart';
-import 'favorite_location_record.dart';
 
 import 'index.dart';
 
@@ -19,7 +18,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   DriversRecord,
   VehiclesRecord,
   RidesRecord,
-  FavoriteLocationRecord,
+  MyLocationsStruct,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

@@ -10,7 +10,7 @@ import GoogleMaps
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    GMSServices.provideAPIKey("AIzaSyC4YFYximcDuX5li-jDvK6cqqn7Rqh3LQg")
+    GMSServices.provideAPIKey("AIzaSyCgKrM2I7BfhL6FLKpJiFmEGuh3bb5CEMA")
     GeneratedPluginRegistrant.register(with: self)
     BTAppContextSwitcher.setReturnURLScheme("com.blackcartransport.blackcar.braintree")
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)

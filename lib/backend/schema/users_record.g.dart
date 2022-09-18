@@ -75,20 +75,20 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.myLocations;
-    if (value != null) {
-      result
-        ..add('my_locations')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                DocumentReference, const [const FullType.nullable(Object)])));
-    }
     value = object.userAddress;
     if (value != null) {
       result
         ..add('user_address')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
+    }
+    value = object.myLocations;
+    if (value != null) {
+      result
+        ..add('myLocations')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(MyLocationsStruct)])));
     }
     value = object.ffRef;
     if (value != null) {
@@ -144,15 +144,15 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.displayName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'my_locations':
-          result.myLocations = serializers.deserialize(value,
-              specifiedType: const FullType(DocumentReference, const [
-                const FullType.nullable(Object)
-              ])) as DocumentReference<Object?>?;
-          break;
         case 'user_address':
           result.userAddress = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
+          break;
+        case 'myLocations':
+          result.myLocations.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(MyLocationsStruct)]))!
+              as BuiltList<Object?>);
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -185,9 +185,9 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String? displayName;
   @override
-  final DocumentReference<Object?>? myLocations;
-  @override
   final String? userAddress;
+  @override
+  final BuiltList<MyLocationsStruct>? myLocations;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -203,8 +203,8 @@ class _$UsersRecord extends UsersRecord {
       this.firstName,
       this.lastName,
       this.displayName,
-      this.myLocations,
       this.userAddress,
+      this.myLocations,
       this.ffRef})
       : super._();
 
@@ -227,8 +227,8 @@ class _$UsersRecord extends UsersRecord {
         firstName == other.firstName &&
         lastName == other.lastName &&
         displayName == other.displayName &&
-        myLocations == other.myLocations &&
         userAddress == other.userAddress &&
+        myLocations == other.myLocations &&
         ffRef == other.ffRef;
   }
 
@@ -251,8 +251,8 @@ class _$UsersRecord extends UsersRecord {
                             firstName.hashCode),
                         lastName.hashCode),
                     displayName.hashCode),
-                myLocations.hashCode),
-            userAddress.hashCode),
+                userAddress.hashCode),
+            myLocations.hashCode),
         ffRef.hashCode));
   }
 
@@ -267,8 +267,8 @@ class _$UsersRecord extends UsersRecord {
           ..add('firstName', firstName)
           ..add('lastName', lastName)
           ..add('displayName', displayName)
-          ..add('myLocations', myLocations)
           ..add('userAddress', userAddress)
+          ..add('myLocations', myLocations)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -309,14 +309,15 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String? get displayName => _$this._displayName;
   set displayName(String? displayName) => _$this._displayName = displayName;
 
-  DocumentReference<Object?>? _myLocations;
-  DocumentReference<Object?>? get myLocations => _$this._myLocations;
-  set myLocations(DocumentReference<Object?>? myLocations) =>
-      _$this._myLocations = myLocations;
-
   String? _userAddress;
   String? get userAddress => _$this._userAddress;
   set userAddress(String? userAddress) => _$this._userAddress = userAddress;
+
+  ListBuilder<MyLocationsStruct>? _myLocations;
+  ListBuilder<MyLocationsStruct> get myLocations =>
+      _$this._myLocations ??= new ListBuilder<MyLocationsStruct>();
+  set myLocations(ListBuilder<MyLocationsStruct>? myLocations) =>
+      _$this._myLocations = myLocations;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -337,8 +338,8 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _firstName = $v.firstName;
       _lastName = $v.lastName;
       _displayName = $v.displayName;
-      _myLocations = $v.myLocations;
       _userAddress = $v.userAddress;
+      _myLocations = $v.myLocations?.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -360,19 +361,32 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   UsersRecord build() => _build();
 
   _$UsersRecord _build() {
-    final _$result = _$v ??
-        new _$UsersRecord._(
-            email: email,
-            photoUrl: photoUrl,
-            uid: uid,
-            createdTime: createdTime,
-            phoneNumber: phoneNumber,
-            firstName: firstName,
-            lastName: lastName,
-            displayName: displayName,
-            myLocations: myLocations,
-            userAddress: userAddress,
-            ffRef: ffRef);
+    _$UsersRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$UsersRecord._(
+              email: email,
+              photoUrl: photoUrl,
+              uid: uid,
+              createdTime: createdTime,
+              phoneNumber: phoneNumber,
+              firstName: firstName,
+              lastName: lastName,
+              displayName: displayName,
+              userAddress: userAddress,
+              myLocations: _myLocations?.build(),
+              ffRef: ffRef);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'myLocations';
+        _myLocations?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'UsersRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

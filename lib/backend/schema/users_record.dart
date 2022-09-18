@@ -31,11 +31,10 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   @BuiltValueField(wireName: 'display_name')
   String? get displayName;
 
-  @BuiltValueField(wireName: 'my_locations')
-  DocumentReference? get myLocations;
-
   @BuiltValueField(wireName: 'user_address')
   String? get userAddress;
+
+  BuiltList<MyLocationsStruct>? get myLocations;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -49,7 +48,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..firstName = ''
     ..lastName = ''
     ..displayName = ''
-    ..userAddress = '';
+    ..userAddress = ''
+    ..myLocations = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -81,7 +81,6 @@ Map<String, dynamic> createUsersRecordData({
   String? firstName,
   String? lastName,
   String? displayName,
-  DocumentReference? myLocations,
   String? userAddress,
 }) {
   final firestoreData = serializers.toFirestore(
@@ -96,8 +95,8 @@ Map<String, dynamic> createUsersRecordData({
         ..firstName = firstName
         ..lastName = lastName
         ..displayName = displayName
-        ..myLocations = myLocations
-        ..userAddress = userAddress,
+        ..userAddress = userAddress
+        ..myLocations = null,
     ),
   );
 

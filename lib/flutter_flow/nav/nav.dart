@@ -66,35 +66,59 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : SignInWidget(),
+          appStateNotifier.loggedIn ? HomeWidget() : SignInWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : SignInWidget(),
+              appStateNotifier.loggedIn ? HomeWidget() : SignInWidget(),
           routes: [
             FFRoute(
-              name: 'signUp',
-              path: 'signUp',
-              builder: (context, params) => SignUpWidget(),
-            ),
-            FFRoute(
-              name: 'editProfile',
-              path: 'editProfile',
-              requireAuth: true,
-              builder: (context, params) => EditProfileWidget(),
-            ),
-            FFRoute(
-              name: 'signIn',
-              path: 'sign-in',
+              name: 'sign_in',
+              path: 'sign_in',
               builder: (context, params) => SignInWidget(),
             ),
             FFRoute(
-              name: 'homePage',
+              name: 'sign_up',
+              path: 'sign_up',
+              builder: (context, params) => SignUpWidget(),
+            ),
+            FFRoute(
+              name: 'finish_profile',
+              path: 'finish_profile',
+              requireAuth: true,
+              builder: (context, params) => FinishProfileWidget(),
+            ),
+            FFRoute(
+              name: 'success',
+              path: 'success',
+              requireAuth: true,
+              builder: (context, params) => SuccessWidget(),
+            ),
+            FFRoute(
+              name: 'home',
               path: 'home',
               requireAuth: true,
-              builder: (context, params) => HomePageWidget(),
+              builder: (context, params) => HomeWidget(),
+            ),
+            FFRoute(
+              name: 'my_rides',
+              path: 'my_rides',
+              requireAuth: true,
+              builder: (context, params) => MyRidesWidget(),
+            ),
+            FFRoute(
+              name: 'manage_family',
+              path: 'manage_family',
+              requireAuth: true,
+              builder: (context, params) => ManageFamilyWidget(),
+            ),
+            FFRoute(
+              name: 'settings',
+              path: 'app_settings',
+              requireAuth: true,
+              builder: (context, params) => SettingsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -180,7 +204,12 @@ class FFParameters {
 
   Map<String, dynamic> futureParamValues = {};
 
-  bool get isEmpty => state.allParams.isEmpty;
+  // Parameters are empty if the params map is empty or if the only parameter
+  // present is the special extra parameter reserved for the transition info.
+  bool get isEmpty =>
+      state.allParams.isEmpty ||
+      (state.extraMap.length == 1 &&
+          state.extraMap.containsKey(kTransitionInfoKey));
   bool isAsyncParam(MapEntry<String, dynamic> param) =>
       asyncParams.containsKey(param.key) && param.value is String;
   bool get hasFutures => state.allParams.entries.any(isAsyncParam);
@@ -248,7 +277,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/sign-in';
+            return '/sign_in';
           }
           return null;
         },
@@ -261,12 +290,15 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: CircularProgressIndicator(
-                      color: Color(0xFF262626),
+              ? Container(
+                  color: Colors.black,
+                  child: Center(
+                    child: Builder(
+                      builder: (context) => Image.asset(
+                        'assets/images/logo.png',
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 )

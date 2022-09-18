@@ -17,3 +17,11 @@ double total(
 ) {
   return (totalHours * hourRate) + baseRate;
 }
+
+LatLng getDeviceLocation(LatLng? deviceLocation) {
+  if (deviceLocation == null ||
+      (deviceLocation.latitude == 0 && deviceLocation.longitude == 0)) {
+    return const LatLng(32.78457281077711, -96.7978150096924);
+  }
+  return deviceLocation;
+}

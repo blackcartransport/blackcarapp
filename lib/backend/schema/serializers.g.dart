@@ -8,10 +8,13 @@ part of 'serializers.dart';
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(DriversRecord.serializer)
-      ..add(FavoriteLocationRecord.serializer)
+      ..add(MyLocationsStruct.serializer)
       ..add(RidesRecord.serializer)
       ..add(UsersRecord.serializer)
       ..add(VehiclesRecord.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(MyLocationsStruct)]),
+          () => new ListBuilder<MyLocationsStruct>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>()))

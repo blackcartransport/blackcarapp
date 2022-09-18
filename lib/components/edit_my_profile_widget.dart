@@ -17,13 +17,20 @@ class EditMyProfileWidget extends StatefulWidget {
 }
 
 class _EditMyProfileWidgetState extends State<EditMyProfileWidget> {
-  String uploadedFileUrl = '';
-  TextEditingController? firstNameController;
-  TextEditingController? lastnameController;
   TextEditingController? displayNameController;
+
+  TextEditingController? firstNameController;
+
+  String uploadedFileUrl = '';
+
+  TextEditingController? lastnameController;
+
   TextEditingController? emailAddressController;
+
   TextEditingController? phoneNumberController;
+
   TextEditingController? homeAddressController;
+
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -236,6 +243,20 @@ class _EditMyProfileWidgetState extends State<EditMyProfileWidget> {
                                         ),
                                         borderRadius: BorderRadius.circular(16),
                                       ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 2,
+                                        ),
+                                        borderRadius: BorderRadius.circular(16),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 2,
+                                        ),
+                                        borderRadius: BorderRadius.circular(16),
+                                      ),
                                       filled: true,
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -282,6 +303,20 @@ class _EditMyProfileWidgetState extends State<EditMyProfileWidget> {
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
                                         width: 2,
                                       ),
                                       borderRadius: BorderRadius.circular(16),
@@ -334,6 +369,20 @@ class _EditMyProfileWidgetState extends State<EditMyProfileWidget> {
                                       ),
                                       borderRadius: BorderRadius.circular(16),
                                     ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -377,6 +426,20 @@ class _EditMyProfileWidgetState extends State<EditMyProfileWidget> {
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(16),
@@ -429,6 +492,20 @@ class _EditMyProfileWidgetState extends State<EditMyProfileWidget> {
                                       ),
                                       borderRadius: BorderRadius.circular(16),
                                     ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -474,6 +551,20 @@ class _EditMyProfileWidgetState extends State<EditMyProfileWidget> {
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
                                         width: 2,
                                       ),
                                       borderRadius: BorderRadius.circular(16),
@@ -535,8 +626,7 @@ class _EditMyProfileWidgetState extends State<EditMyProfileWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .subtitle1
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .subtitle1Family,
+                                        fontFamily: 'Montserrat',
                                         color: Colors.white,
                                       ),
                                   elevation: 3,

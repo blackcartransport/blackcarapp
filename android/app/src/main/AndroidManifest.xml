@@ -2,8 +2,6 @@
     package="com.blackcartransport.blackcar"
     xmlns:tools="http://schemas.android.com/tools">
    <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
   <uses-permission android:name="android.permission.CAMERA"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -49,7 +47,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="blackcartransport" android:host="blackcartransport.net" />
+                <data android:scheme="blackcartransport" android:host="blackcartransport.com" />
             </intent-filter>
 
         </activity>
@@ -69,7 +67,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyByje3cEUTAXjHdQ6IuofGhM3vzNJBbiUc"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCIvDowFAOpiXCPIHbYIBlN9ALAFmcCWbw"/>
 
         <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
     </application>
